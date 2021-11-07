@@ -33,4 +33,12 @@ public class GreetingController {
     public List<Greeting> getAllGreeting() {
         return greetingService.getAllGreetings();
     }
+
+    @GetMapping("/put/")
+    public Greeting updateGreeting(@RequestParam (value = "id") long id, @RequestParam (value = "firstName") String firstName, @RequestParam (value = "lastName") String lastName) {
+        User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        return greetingService.updateGreeting(id, user);
+    }
 }
