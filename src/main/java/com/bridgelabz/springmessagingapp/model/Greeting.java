@@ -5,6 +5,9 @@ public class Greeting {
     Long id;
     String name;
 
+    public Greeting() {
+    }
+
     public Greeting(Long id, String name) {
         this.id = id;
         this.name = name;
