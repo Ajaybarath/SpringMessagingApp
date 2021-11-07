@@ -3,8 +3,10 @@ package com.bridgelabz.springmessagingapp.implementation;
 import com.bridgelabz.springmessagingapp.model.Greeting;
 import com.bridgelabz.springmessagingapp.model.User;
 
+import java.util.Optional;
+
 public interface IGreetingService {
 
     Greeting addGreeting(User user);
-    Greeting getGreetingById();
+    Optional<Greeting> getGreetingById(long id);
 }
