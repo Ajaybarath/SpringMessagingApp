@@ -12,4 +12,5 @@ public interface IGreetingService {
     Optional<Greeting> getGreetingById(long id);
     List<Greeting> getAllGreetings();
     Greeting updateGreeting(long id, User user);
+    void deleteGreetingById(long id);
 }

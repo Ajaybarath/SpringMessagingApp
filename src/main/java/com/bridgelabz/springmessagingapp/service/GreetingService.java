@@ -38,4 +38,11 @@ public class GreetingService implements IGreetingService {
     public Greeting updateGreeting(long id, User user) {
         return greetingRepository.save(new Greeting(id, user.toString()));
     }
+
+    @Override
+    public void deleteGreetingById(long id) {
+        Greeting greeting = greetingRepository.findById(id).stream().filter(u -> u.getId() == id).findFirst().orElse(null);
+        greetingRepository.delete(greeting);
+        greetingRepository.flush();
+    }
 }

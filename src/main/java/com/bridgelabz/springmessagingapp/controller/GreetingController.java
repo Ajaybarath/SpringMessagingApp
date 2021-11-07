@@ -34,11 +34,16 @@ public class GreetingController {
         return greetingService.getAllGreetings();
     }
 
-    @GetMapping("/put/")
-    public Greeting updateGreeting(@RequestParam (value = "id") long id, @RequestParam (value = "firstName") String firstName, @RequestParam (value = "lastName") String lastName) {
+    @GetMapping("/put/{id}")
+    public Greeting updateGreeting(@PathVariable (value = "id") long id, @RequestParam (value = "firstName") String firstName, @RequestParam (value = "lastName") String lastName) {
         User user = new User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         return greetingService.updateGreeting(id, user);
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") long id) {
+        return "Deleted" + id + " successfully";
     }
 }
