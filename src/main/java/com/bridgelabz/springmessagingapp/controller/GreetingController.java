@@ -6,6 +6,7 @@ import com.bridgelabz.springmessagingapp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,4 +29,8 @@ public class GreetingController {
         return greetingService.getGreetingById(id);
     }
 
+    @GetMapping("/get/all")
+    public List<Greeting> getAllGreeting() {
+        return greetingService.getAllGreetings();
+    }
 }
