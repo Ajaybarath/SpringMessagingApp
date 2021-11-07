@@ -43,7 +43,7 @@ public class GreetingController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") long id) {
-        return "Deleted" + id + " successfully";
+    public void delete(@PathVariable("id") long id) {
+        greetingService.deleteGreetingById(id);
     }
 }
